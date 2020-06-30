@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- Appenders -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>true</withJansi>
+		<encoder>
+            <pattern>
+            	%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%thread] %logger{36}\(%F:%L\) - %msg%n
+            </pattern>
+		</encoder>
+    </appender>
+	
+	<!-- Application Loggers -->
+	<logger name="com.samickthk.seatreservation">
+		<level value="debug" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context" additivity="false">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.audit" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.resultset" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.connection" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.sqlonly">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+	
+</configuration>

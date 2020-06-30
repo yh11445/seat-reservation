@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samickthk.seatreservation.mapper.UserMapper">
+
+	<select id="selectOne" resultType="int">
+		SELECT 1
+	</select>
+	
+	<resultMap type="com.samickthk.seatreservation.domain.User" id="user">
+		<result property="userId" column="user_id"/>
+		<result property="loginId" column="login_id"/>
+		<result property="loginPw" column="login_pw"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="enable" column="enable"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="udtDate" column="udt_date"/>
+	</resultMap>
+	
+	<select id="selectUserByIdPw" resultMap="user">
+		SELECT
+			user_id,
+			login_id,
+			login_pw,
+			name,
+			email,
+			enable,
+			reg_date,
+			udt_date
+			
+		FROM user
+		
+		WHERE login_id = #{loginId}
+		AND login_pw = PASSWORD(#{loginPw})
+		AND enable = 'Y'
+	</select>
+
+</mapper>
