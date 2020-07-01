@@ -31,6 +31,9 @@ public class UserService {
 			if (user == null) throw new LoginException(1001);
 			
 			return user;
+		} catch (LoginException e) {
+			log.error(e.getMessage());
+			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

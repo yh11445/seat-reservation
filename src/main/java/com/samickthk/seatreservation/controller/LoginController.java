@@ -34,7 +34,7 @@ public class LoginController {
 	 * @return
 	 */
 	@ApiOperation("로그인")
-	@GetMapping("/login")
+	@GetMapping(value = "/login", produces = "application/json")
 	public ResponseEntity<Object> login(
 			@RequestParam String loginId,
 			@RequestParam String loginPw) {
@@ -52,7 +52,7 @@ public class LoginController {
 			return ResponseEntity.status(HttpStatus.OK).body(result);
 		} catch (LoginException e) {
 			result.put("responseCode", 4000);
-			result.put("errorObject", e);
+			result.put("errorMessage", e.getMessage());
 			
 			return ResponseEntity.status(HttpStatus.OK).body(result);
 		} catch (Exception e) {
